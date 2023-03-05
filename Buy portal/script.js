@@ -186,5 +186,5 @@ fetch('https://fakestoreapi.com/products')
     function myFun() {
         localStorage.removeItem('items')
         localStorage.removeItem('loggedIn')
-        window.location.href = '/Contest F3/project/home page/index.html'
+        window.location.href = '../index.html'
     }
