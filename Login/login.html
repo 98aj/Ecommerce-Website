@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+
+            <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand">Shopping Portal</a>
+          <ul class="nav justify-content-end" >
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/Contest F3/project/home page/index.html">Home Page</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="./signup.html">Sign-up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+    
+    <div class="regesterForm" >
+        <form class="form1" id="Login" >
+            
+    
+            <h2 class="Text">To Continue Shopping Please Login</h2>
+    
+            <input type="email" name="email" id="email" placeholder="Enter Email Id" required><span class="formerror"></span><br><br>
+            <input type="password" name="password" id="password1" placeholder="Enter Password" required><span class="formerror"></span><br><br>
+            <button class="btn btn-dark" type="submit" >Login</button>
+            
+            
+        </form>
+        
+    </div>
+
+   <script>
+    // For Login page
+let email1 = document.getElementById('email')
+      let password = document.getElementById('password1')
+      let data = localStorage.users;
+      let convData = JSON.parse(data);
+
+     
+
+      let loginForm = document.getElementById('Login');
+
+      loginForm.addEventListener('submit', ()=>{
+        event.preventDefault();
+        let flag = false
+        
+        for(let i=0; i<convData.length; i++){
+          if(convData[i].emailId==email1.value && convData[i].password == password.value){
+          localStorage.setItem('loggedIn', i)
+          flag = true
+          window.location.href = '/Contest F3/project/Buy portal/shop.html'
+        }
+        }
+
+        if(flag===false){
+          alert('Invalid Login Id or Password');
+        }
+       
+      })
+
+
+      
+
+   </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.nav-link{
+    color: white;
+}
+
+.upper{
+   margin: 20px;
+}
+
+#submitBtn{
+    background-color: black;
+    color: white;
+}
+
+.img{
+    width: 700px;
+    height: 500px;
+}
+
+.tiles{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.card{
+    margin-left: 20px;
+}
+
+.color{
+    display: flex;
+    justify-content: space-between;
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+  }
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    margin: 0 5px;
+  }
+
+  .card-img-top{
+    height: 300px;
+  }

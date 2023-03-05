@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+
+            <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar bg-primary " data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand">Shopping Portal</a>
+          <ul class="nav justify-content-end" >
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/Contest F3/project/Login/signup.html">Sign-up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/Contest F3/project/Login/login.html" >Login</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+
+      <div class="upper">
+        <h1>Me Shop</h1>
+        <p>My First Shop build on HTML, CSS & JavaScript</p>
+  
+        <button class="btn btn-dark" onclick="myFunlo()">Login</button>
+        <button class="btn btn-outline-dark" onclick="myFunsi()">Sign-Up</button>
+      </div>
+      
+
+      
+      <div class="tiles">
+        <div class="card" style="width: 18rem;">
+          <img src="Shirt.png" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Shirt</h5>
+            <p class="card-text">$100 <br> <div class="color">
+              Color:<div class="row">
+                <div class="circle" style="background-color: #000"></div>
+                <div class="circle" style="background-color: #4938af"></div>
+                <div class="circle" style="background-color: #203d3e"></div>
+              </div>
+            </div> <br>
+            Rating: <span>&#11088;</span><span>&#11088;</span><span>&#11088;</span><span>&#11088;</span>
+              </p>
+            <a href="/Contest F3/project/Login/signup.html" class="btn btn-dark">Add To Cart</a>
+          </div>
+        </div>
+
+        <img src="Landing-page-Img.png" class='img'alt="" srcset="">
+      </div>
+    
+      <script>
+        function myFunlo(){
+          window.location.href = '/Contest F3/project/Login/login.html'
+        }
+
+        function myFunsi(){
+          window.location.href = '/Contest F3/project/Login/signup.html'
+        }
+      </script>
+</body>
+</html>

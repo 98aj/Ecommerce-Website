@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up Page</title>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+
+            <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand">Shopping Portal</a>
+          <ul class="nav justify-content-end" >
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/Contest F3/project/home page/index.html">Home Page</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Sign-up</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./login.html" >Login</a>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+
+    
+    <div class="regesterForm" >
+        <form class="form1" id="signUp" >
+            
+    
+            <h2 class="Text">Sign-up</h2>
+    
+            <input type="text" name="name" id="name" placeholder="Full Name / User Name" required><span class="formerror"></span><br><br>
+            <input type="email" name="email" id="email" placeholder="Enter Email Id" required><span class="formerror"></span><br><br>
+            <input type="password" name="password" id="password1" placeholder="Enter Password" required><span class="formerror"></span><br><br>
+            <input type="password" name="password" id="password2" placeholder="Confirm Password" required><span class="formerror"></span><br><br>
+            <button class="btn btn-dark" type="submit">Sign-up</button>
+            
+        </form>
+        
+    </div>
+
+
+    <script>
+
+      
+
+        let signupForm =  document.getElementById('signUp')
+        
+         
+         signupForm.addEventListener('submit', (event)=>{
+    event.preventDefault();
+    let valid = validation();
+    
+    if(valid==true){
+
+        
+        if(localStorage.getItem('users')==null){
+           getData();
+            localStorage.setItem('users', JSON.stringify(formData))
+            window.location.href = './login.html';
+        }else{
+              const details = JSON.parse(localStorage.users);
+              const namevalue = document.forms[0].name.value.trim();
+              const emailvalue = document.forms[0].email.value.trim();
+              const password1value = document.forms[0].password1.value.trim();
+              const userData = {
+                  
+                  username: namevalue,
+                  emailId: emailvalue,
+                  password: password1value
+              }
+              details.push(userData);
+
+            localStorage.setItem('users', JSON.stringify(details))
+            window.location.href = './login.html';
+        }
+        
+        
+    }
+})
+
+// Error message Function 
+function errorMs(element, ms, i) {
+    let displaymse = document.getElementsByClassName('formerror')[i]
+
+    displaymse.innerText = ms;
+}
+
+function success(element,ms, i) {
+    let displaymss = document.getElementsByClassName('formerror')[i]
+
+    displaymss.innerText = '';
+}
+
+// Validation of User sign up
+function validation() {
+    const namevalue = document.forms[0].name.value.trim();
+    const emailvalue = document.forms[0].email.value.trim();
+    const password1value = document.forms[0].password1.value.trim();
+    const password2value = document.forms[0].password2.value.trim();
+    const upperCaseLetters = /[A-Z]/g;
+    const lowerCaseLetters = /[a-z]/g;
+    const numbers = /[0-9]/g;
+
+    
+    
+    if (namevalue.length<2) {
+        errorMs(namevalue, 'Length is too short', 0)
+       return false
+    }
+    else{
+        success(namevalue,'', 0)
+        
+    }
+
+    if(password1value.match(upperCaseLetters) && password1value.match(lowerCaseLetters) && password1value.match(numbers) && password1value!=emailvalue){
+        success(password1value,'', 2);
+         
+    }
+    else{
+        errorMs(password1value, 'Passwords should have at least 1 capital letter, 1 small, 1 number and 1 special characters', 2);
+        return false
+
+    }
+    if( password1value!=password2value){
+        errorMs(password2value, "Password Does Not Match", 3)
+       return false
+        
+    }
+    else{
+        success(password2value,'', 3);
+        
+    }
+
+    return true
+       
+}
+
+//collect data and store as array of object
+
+let formData = []
+
+function getData(){
+    const namevalue = document.forms[0].name.value.trim();
+    const emailvalue = document.forms[0].email.value.trim();
+    const password1value = document.forms[0].password1.value.trim();
+    const password2value = document.forms[0].password2.value.trim();
+    const userData = {
+       
+        username: namevalue,
+        emailId: emailvalue,
+        password: password1value
+    }  
+    formData.push(userData);
+    document.forms[0].reset();
+    
+
+}
+    </script>
+</body>
+</html>
